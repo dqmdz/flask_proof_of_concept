@@ -7,10 +7,10 @@
 
 # Create db
 4. flask shell
- >>> db.create_all()
+ shell> db.create_all()
 
 # if required (previously)
- >>> db.drop_all()
+ shell> db.drop_all()
 
 # if required
  python fake.py  -> populate db
