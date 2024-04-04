@@ -7,11 +7,11 @@
 
 # Create db
 4. flask shell
-5. > > > db.create_all()
+5.  >>> db.create_all()
 
 if required (previously)
 
-4.1 > > > db.drop_all()
+4.1 >>> db.drop_all()
 
 if required
 
