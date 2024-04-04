@@ -7,6 +7,7 @@
 
 # Create db
 4. flask shell
+   
  shell> db.create_all()
 
 # if required (previously)
