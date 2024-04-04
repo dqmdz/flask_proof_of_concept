@@ -7,21 +7,19 @@
 
 # Create db
 4. flask shell
-5.  >>> db.create_all()
+ >>> db.create_all()
 
-if required (previously)
+# if required (previously)
+ >>> db.drop_all()
 
-4.1 >>> db.drop_all()
-
-if required
-
-6. python fake.py  -> populate db
+# if required
+ python fake.py  -> populate db
 
 # run application
-7. python app.py
+5. python app.py
 
 # get all
-8. curl http://localhost:5555/personas
+6. curl http://localhost:5555/personas
 
 # get one
-9. curl http://localhost:5555/personas/1
+7. curl http://localhost:5555/personas/1
