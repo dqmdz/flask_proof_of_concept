@@ -1,4 +1,4 @@
-# flask_proof_of_concept_sqlite
+# flask_proof_of_concept_mysql
 
 # MySQL
 ```
