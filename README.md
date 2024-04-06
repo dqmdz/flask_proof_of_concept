@@ -1,9 +1,14 @@
-# flask_proof_of_concept_sqlite
+# flask_proof_of_concept_postgres
+
+# PostgreSQL
+```
+docker compose up -d
+```
 
 # Instructions
 1. python virtualenv venv
 2. source venv/bin/activate
-3. pip install -r requirements.txt
+3. pip install -r requirements.txt (**include psycopg2-binary**)
 
 # Create db
 4. flask shell
