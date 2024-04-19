@@ -1,8 +1,8 @@
 # flask_proof_of_concept_sqlite
 
 # Instructions
-1. python virtualenv venv
-2. source venv/bin/activate
+1. python -m virtualenv venv | python -m venv venv
+2. source venv/bin/activate | .\venv\Scripts\activate
 3. pip install -r requirements.txt
 
 # Create db
