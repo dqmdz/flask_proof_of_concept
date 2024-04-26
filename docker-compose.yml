@@ -12,3 +12,11 @@ services:
     environment:
         - MYSQL_ROOT_PASSWORD=root
         - TZ=America/Argentina/Mendoza
+
+  app:
+    build:
+      context: .
+    ports:
+      - "5555:5555"
+    depends_on:
+      - mysql
