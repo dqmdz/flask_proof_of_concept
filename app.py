@@ -1,13 +1,23 @@
+import os
+
 from flask import Flask, request
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from flask_migrate import Migrate
 
+from dotenv import load_dotenv
+
 from models import db, Persona
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@localhost:5432/app'
+
+load_dotenv()
+
+host = os.getenv('HOST')
+print('host=', host)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://root:root@{host}:5432/app'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
@@ -74,4 +84,4 @@ class Personas(Resource):
 api.add_resource(Personas, '/personas', '/personas/<int:persona_id>')
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(host='0.0.0.0', port=5555, debug=True)

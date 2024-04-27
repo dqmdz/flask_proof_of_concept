@@ -10,6 +10,11 @@ docker compose up -d
 2. source venv/bin/activate
 3. pip install -r requirements.txt (**include psycopg2-binary**)
 
+# inside postgres instance
+/# psql
+root=# create database app;
+root=# \l
+
 # Create db
 4. flask shell
    
