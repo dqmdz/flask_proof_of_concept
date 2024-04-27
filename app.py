@@ -1,13 +1,23 @@
+import os
+
 from flask import Flask, request
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from flask_migrate import Migrate
 
+from dotenv import load_dotenv
+
 from models import db, Persona
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost:3306/app'
+
+load_dotenv()
+
+host = os.getenv('HOST')
+print(f'host=', host)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://root:root@{host}:3306/app'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
