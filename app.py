@@ -1,13 +1,19 @@
+import os
+
 from flask import Flask, request
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from flask_migrate import Migrate
 
+from dotenv import load_dotenv
+
 from models import db, Persona
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+load_dotenv()
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.getenv('FILENAME')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
