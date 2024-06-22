@@ -1,26 +1,48 @@
 # flask_proof_of_concept_sqlite
 
-# Instructions
-1. python -m virtualenv venv | python -m venv venv
-2. source venv/bin/activate | .\venv\Scripts\activate
-3. pip install -r requirements.txt
+## Instructions to start
+~~~bash
+python -m virtualenv venv | python -m venv venv
+source venv/bin/activate | .\venv\Scripts\activate
+pip install -r requirements.txt
+~~~
 
-# Create db
-4. flask shell
-   
- shell> db.create_all()
+## Run application
+~~~bash
+python run.py
+~~~
 
-# if required (previously)
- shell> db.drop_all()
+### Populate db
+~~~bash
+python -m scripts.fake
+~~~
 
-# if required
- python fake.py  -> populate db
+### Get all
+~~~bash
+curl --request GET --url http://localhost:5555/personas
+~~~
 
-# run application
-5. python app.py
+### Get one
+~~~bash
+curl --request GET --url http://localhost:5555/personas/1
+~~~
 
-# get all
-6. curl http://localhost:5555/personas
+### Create
+~~~bash
+curl --request POST --url http://localhost:5555/personas --header 'Content-Type: application/json' --data '{"nombre": "Juan", "apellido": "Perez", "email": "juan@perez.com"}'
+~~~
 
-# get one
-7. curl http://localhost:5555/personas/1
+### Update
+~~~bash
+curl --request PUT --url http://localhost:5555/personas/1 --header 'Content-Type: application/json' --data '{"nombre": "Juan", "apellido": "Perez", "email": "juancito@perez.com"}'
+~~~
+
+### Delete
+~~~bash
+curl --request DELETE --url http://localhost:5555/personas/11
+~~~
+
+### Test
+~~~bash
+python -m unittest discover -s tests
+~~~
