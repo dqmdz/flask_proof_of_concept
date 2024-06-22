@@ -13,7 +13,8 @@ app = Flask(__name__)
 CORS(app)
 load_dotenv()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.getenv('FILENAME')
+db_path = os.getenv('FILENAME')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
@@ -80,4 +81,8 @@ class Personas(Resource):
 api.add_resource(Personas, '/personas', '/personas/<int:persona_id>')
 
 if __name__ == '__main__':
+    with app.app_context():
+        if not os.path.exists(db_path):
+            db.create_all()
     app.run(host="0.0.0.0", port=5555, debug=True)
+    
